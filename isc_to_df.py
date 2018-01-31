@@ -6,7 +6,7 @@ import pandas as pd
 
 def file_to_df(file_name):
     '''Read single .csv file and convert to a dataframe'''
-    keep_column_index = [0, 1, 2, 3, 4, 10, 11, 12]
+    keep_column_index = [0, 1, 2, 3, 7, 10, 11, 12]
     df = pd.read_csv(file_name, header=None, usecols=keep_column_index)
     df.columns = ['source', 'date_time_string', 'latitude', 'longitude',
                   'depth', 'magnitude_author', 'magnitude', 'magnitude_type']
