@@ -1,12 +1,27 @@
 import glob
-import pdb
 import time
 import pandas as pd
 
 
 def file_to_df(file_name):
     '''Read single .csv file and convert to a dataframe'''
-    keep_column_index = [0, 1, 2, 3, 7, 10, 11, 12]
+    source_col = 0
+    date_time_string_col = 1
+    latitude_col = 2
+    longitude_col = 3
+    depth_col = 7
+    magnitude_author_col = 10
+    magnitude_col = 11
+    magnitude_type_col = 12
+
+    keep_column_index = [date_time_string_col, 
+                         latitude_col,
+                         longitude_col,
+                         depth_col,
+                         magnitude_author_col,
+                         magnitude_col,
+                         magnitude_type_col]
+
     df = pd.read_csv(file_name, header=None, usecols=keep_column_index)
     df.columns = ['source', 'date_time_string', 'latitude', 'longitude',
                   'depth', 'magnitude_author', 'magnitude', 'magnitude_type']
